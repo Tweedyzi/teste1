@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un jeu – GameForgeAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center p-6 max-w-7xl mx-auto">
+    <h1 class="text-2xl font-bold text-purple-400">GameForgeAI</h1>
+    <nav class="space-x-6 text-gray-300">
+      <a href="index.html" class="hover:text-white">Accueil</a>
+      <a href="creer-un-jeu.html" class="text-white font-semibold">Créer</a>
+      <a href="a-propos.html" class="hover:text-white">À propos</a>
+      <a href="connexion.html" class="hover:text-white">Connexion</a>
+      <a href="inscription.html" class="hover:text-white">Inscription</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-grow max-w-4xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold mb-6">Créer un jeu avec l’IA</h2>
+    <form id="jeuForm" class="space-y-6">
+      <div>
+        <label class="block mb-2 text-sm text-gray-300">Décris ton jeu</label>
+        <textarea id="prompt" class="w-full h-32 p-4 text-black rounded-lg resize-none" required></textarea>
+      </div>
+      <div>
+        <label class="block mb-2 text-sm text-gray-300">Plateforme</label>
+        <select id="platform" class="w-full p-3 text-black rounded-lg">
+          <option value="godot">Godot (PC/2D)</option>
+          <option value="html5">HTML5 (Navigateur)</option>
+        </select>
+      </div>
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold">
+        GÉNÉRER
+      </button>
+    </form>
+
+    <!-- Résultat -->
+    <div id="resultat" class="mt-10 hidden bg-gray-800 p-6 rounded-lg">
+      <h3 class="text-xl font-semibold mb-2">🎮 Résultat IA :</h3>
+      <pre id="output" class="whitespace-pre-wrap text-sm text-gray-200"></pre>
+      <a id="downloadLink" href="#" class="inline-block mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded" download>
+        Télécharger le projet ZIP
+      </a>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('jeuForm');
+    const output = document.getElementById('output');
+    const resultat = document.getElementById('resultat');
+    const downloadLink = document.getElementById('downloadLink');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultat.classList.remove('hidden');
+      output.textContent = "⏳ Génération du jeu en cours...";
+      downloadLink.style.display = "none";
+
+      const prompt = document.getElementById('prompt').value;
+      const platform = document.getElementById('platform').value;
+
+      const res = await fetch('php/generate.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, platform })
+      });
+
+      const data = await res.json();
+      const text = data.choices[0].message.content;
+      const zipUrl = data.zip_url || "#";
+
+      output.textContent = text;
+      downloadLink.href = zipUrl;
+      downloadLink.style.display = "inline-block";
+    });
+  </script>
+
+</body>
+</html>

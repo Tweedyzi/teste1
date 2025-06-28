@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos – GameForgeAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center p-6 max-w-7xl mx-auto">
+    <h1 class="text-2xl font-bold text-purple-400">GameForgeAI</h1>
+    <nav class="space-x-6 text-gray-300">
+      <a href="index.html" class="hover:text-white">Accueil</a>
+      <a href="creer-un-jeu.html" class="hover:text-white">Créer</a>
+      <a href="a-propos.html" class="text-white font-semibold">À propos</a>
+      <a href="connexion.html" class="hover:text-white">Connexion</a>
+      <a href="inscription.html" class="hover:text-white">Inscription</a>
+    </nav>
+  </header>
+
+  <!-- CONTENU -->
+  <main class="max-w-4xl mx-auto px-6 py-12 space-y-8">
+    <h2 class="text-3xl font-bold text-purple-300">Qu’est-ce que GameForgeAI ?</h2>
+    <p class="text-gray-300">
+      GameForgeAI est une plateforme qui vous permet de créer des jeux vidéo à partir d’un simple texte.
+      Grâce à l’intelligence artificielle, vous pouvez générer des concepts, du code source, et même télécharger un projet jouable.
+    </p>
+
+    <h3 class="text-2xl font-semibold text-purple-300 mt-10">Fonctionnement</h3>
+    <ul class="list-disc list-inside text-gray-300 space-y-2">
+      <li>Vous décrivez votre jeu (ex : “RPG 2D avec quêtes et combats tour par tour”)</li>
+      <li>L’IA analyse votre prompt et propose un moteur (Godot, HTML5)</li>
+      <li>Un projet est généré automatiquement (scènes, code, assets)</li>
+      <li>Vous pouvez télécharger le projet complet en .zip</li>
+    </ul>
+
+    <h3 class="text-2xl font-semibold text-purple-300 mt-10">Technologies utilisées</h3>
+    <ul class="list-disc list-inside text-gray-300 space-y-2">
+      <li>🎯 <strong>OpenAI GPT-4</strong> pour la génération intelligente</li>
+      <li>🎮 <strong>Godot Engine</strong> pour les jeux 2D/3D sur PC</li>
+      <li>🌐 <strong>HTML5 + JS</strong> pour des jeux jouables dans un navigateur</li>
+      <li>📦 PHP + JSON pour stocker vos projets</li>
+    </ul>
+
+    <div class="text-center mt-12">
+      <a href="creer-un-jeu.html" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg text-lg font-semibold">
+        Commencer à créer un jeu
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 text-sm p-6">
+    &copy; 2025 GameForgeAI – Tous droits réservés.
+  </footer>
+
+</body>
+</html>
