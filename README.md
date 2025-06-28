@@ -14,3 +14,27 @@ GameForgeAI est une plateforme web alimentée par l'intelligence artificielle, p
 
 ## 📁 Structure du projet
 
+📦 GameForgeAI/
+├── index.html
+├── creer-un-jeu.html
+├── connexion.html / inscription.html
+├── mes-jeux.html / premium.html / a-propos.html
+├── config/config.php
+├── data/users.json / jeux/
+├── php/*.php (backend complet)
+├── js/app.js
+├── style/tailwind.css
+└── README.md
+
+## ⚙️ Configuration requise
+
+- Serveur compatible PHP (ex: XAMPP, Render.com, etc.)
+- PHP 7.4 ou supérieur
+- Une clé OpenAI valide (à ajouter dans `config/config.php`)
+
+## 🔐 Ajouter votre clé OpenAI
+
+Dans `config/config.php`, remplacez :
+
+```php
+define('OPENAI_API_KEY', 'sk-votre_clé_ici');
