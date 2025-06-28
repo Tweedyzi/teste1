@@ -13,7 +13,7 @@ GameForgeAI est une plateforme web alimentée par l'intelligence artificielle, p
 - 📱 Design moderne et responsive avec TailwindCSS
 
 ## 📁 Structure du projet
-
+<pre><code>
 📦 GameForgeAI/
 ├── index.html
 ├── creer-un-jeu.html
@@ -24,7 +24,7 @@ GameForgeAI est une plateforme web alimentée par l'intelligence artificielle, p
 ├── php/*.php (backend complet)
 ├── js/app.js
 ├── style/tailwind.css
-└── README.md
+└── README.md  </code></pre>
 
 ## ⚙️ Configuration requise
 
